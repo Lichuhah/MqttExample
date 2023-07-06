@@ -1,0 +1,13 @@
+﻿@page
+@model MqttServerWeb.Pages.Publisher
+@{
+    ViewData["Title"] = "Клиент-издатель:";
+}
+<h1>@ViewData["Title"]</h1>
+<form asp-page-handler="send" method="post">
+    <label>Топик: </label>
+    <input type="text" name="topic"/>
+    <label>Тело: </label>
+    <input type="text" name="body"/>
+    <button>Отправить</button>
+</form>  

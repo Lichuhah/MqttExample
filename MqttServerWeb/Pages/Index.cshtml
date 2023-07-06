@@ -1,0 +1,21 @@
+﻿@page
+@using MqttServerWeb.Mqtt
+@model IndexModel
+@{
+    ViewData["Title"] = "Брокер";
+    var clients = MqttHelper.GetCurrentClients();
+}
+<link rel="stylesheet" href="~/css/site.css" />
+<p>Клиенты:</p>
+<table class="table">
+    <thead>
+    <th>Id</th>
+    </thead>
+    <tbody>
+    @foreach (var item in clients)
+    {
+        <tr><td>@item.name</td></tr>
+    }
+    </tbody>
+</table>
+    

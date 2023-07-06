@@ -1,0 +1,38 @@
+﻿@page
+@using MqttServerWeb.Mqtt
+@model SubscriberModel
+
+@{
+    ViewData["Title"] = "Клиент-подписчик:";
+    List<MqttMessage> messages = MqttHelper.GetLastMessages();
+    List<string> topics = MqttHelper.GetTopics();
+}
+<h1>@ViewData["Title"]</h1>
+<p>Лог:</p>
+<table class="table">
+ <thead>
+    <th>Клиент</th><th>Топик</th><th>Тело</th>
+    </thead>
+    <tbody>
+    @foreach (var item in messages)
+    {
+        <tr><td>@item.Client</td><td>@item.Topic</td><td>@item.Payload</td></tr>
+    }
+    </tbody>
+ </table>
+<br>
+<p>Топики:</p>
+<table class="table">
+    <tbody>
+    @foreach (var item in topics)
+    {
+        <tr><td>@item</td></tr>
+    }
+    </tbody>
+</table>
+<br>
+<form asp-page-handler="topic" method="post">
+    <label>Имя топика: </label>
+    <input type="text" name="topic"/>
+    <button>Подписаться</button>
+</form>  

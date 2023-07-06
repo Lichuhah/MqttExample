@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MQTTnet" Version="4.2.1.781" />
+      <PackageReference Include="MQTTnet.Extensions.ManagedClient" Version="4.2.1.781" />
+    </ItemGroup>
+
+</Project>
